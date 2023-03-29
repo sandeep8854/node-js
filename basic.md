@@ -312,4 +312,55 @@ js server using the --watch flag, run the node command with the --watch flag fol
 
 If any require to change in your code then no need to run command watch mode detect automatically your code. and give the output based on your function call.
 **Just save it.**
+
 ![screen](./images/watchmode2.png)
+
+### Build-in-Module
+
+Modules that node.js ships with Also referred to as core modules
+
+Import the module before you can use it.
+
+- path
+- events
+- fs
+- stream
+- http
+
+### 1- Path module
+
+The path module provides utilities for working with file and directory path.
+
+![screen](./images/path.png)
+
+In this above example **filename give us to absolute path and **dirname give us absolute dirctory name.
+
+Differnce method available in path module.
+
+![screen](./images/pathMethod.png)
+
+In this above example if you run this program you will find a baseName of the file name which are using **path.basename(\_\_filename)**
+
+and **path.extname(\_\_filename)** give us the extension of file name but directory name does not have any extension, he will given to empty.
+
+and **path.parse(\_\_filename)** method give us to inform of object every information of the pathname.
+
+and **path.format(path.parse(\_\_filename))** give us the absolute path of filename.
+
+Some remaining method are:-
+
+![screen](./images/pathMethod2.png)
+
+In above example have isAsolute method which are given is it absolute are not.
+
+and join method also there to join all arguments and normalize the resulting path.
+
+**Last and important method**
+
+![screen](./images/resolve.png)
+
+**Both these methods accept a sequence of paths or path segments.**
+
+**The path.resolve() method resolves a sequence of paths or path segments into an absolute path.**
+
+**The path.join() method joins all given path segments together using the platform specific separator as a delimiter, then normalizes the resulting path.**

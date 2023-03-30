@@ -333,7 +333,7 @@ The path module provides utilities for working with file and directory path.
 
 ![screen](./images/path.png)
 
-In this above example **filename give us to absolute path and **dirname give us absolute dirctory name.
+In this above example **filename give us to absolute path and** dirname give us absolute dirctory name.
 
 Differnce method available in path module.
 
@@ -364,3 +364,208 @@ and join method also there to join all arguments and normalize the resulting pat
 **The path.resolve() method resolves a sequence of paths or path segments into an absolute path.**
 
 **The path.join() method joins all given path segments together using the platform specific separator as a delimiter, then normalizes the resulting path.**
+
+### Callback Pattern
+
+- In JavaScript, functions are first class objects.
+
+- A function can be passed as an arguments to function.
+
+- A function can be also be returned as values from another functions.
+
+![screen](./images/callback1.png)
+
+**Type of callback functions**
+
+- Synchronous
+- Asynchronous
+
+A callback which is executed immediately is callled a synchronous callback.
+
+Asynchronous:- A callback that is often used to continue or resume code execution after an asynchronous operation has completed.
+
+callback are used to delay to execute of a function until particuler time or event has occurred.
+
+In node.js have an asynchronus nature to prevent blocking of execution.
+
+**Example** reading data from a file, fetching data from a database or holding a network request.
+
+**Asynchronous callback in brower**
+
+![screen](./images/callback2.png)
+
+### Events Module
+
+- The events module allows us to work events in node.js
+
+- An events is an action or an occurrence that has happened in our application that we can respond to.
+
+- Using the events module, we can dispatch our custom events and respond to those custom events in a non-blocking manner.
+
+### Events Module- Scenario
+
+- Let's say you are feeling hungry and head out to Dominos to have pizza.
+
+- At the counter, you place your order for pizza
+
+- When you place the order, the line cook sees the order on the screen and bakes the pizza for you.
+
+- Order being placed int the events
+
+- Baking a pizza is a responce to that event
+
+![screen](./images/emit.png)
+
+**Note**
+
+- The events module is a build-in module that allow us to work with events in node.
+
+- The module return an events emitter class which we can it instantiate to create an emitter object
+
+![screen](./images/emitter.png)
+
+- Using emitter object we can register event listner that on method and emit method accept the event name followed by arguments that need to passed on the listener.
+
+- when events occurs node automatically call the listner for the corresponding event passing in appropriate agruments.
+
+- Events allow us to code non-blocking manner.
+
+### Extending from EventEmitter
+
+How to build your own event Emitter?
+
+![screen](./images/O1.png)
+
+![screen](./images/O2.png)
+
+![screen](./images/O3.png)
+
+### Stream and Buffers
+
+**Stream**
+
+- A Stream of a sequence of data that is being moved from one point to another over time.
+
+- Ex: A Stream of data over the internet being moved from one computer to another.
+
+- Ex: A Stream of data being transferred from one file to another within the same computer.
+
+- Process Stream of data in chunk as they arrive insted of waiting for the entire data to be availble before processing.
+
+Ex: Watching a video on Youtube.
+
+The data arrive in chunks and you watch in chunks while
+the rest of data arrive over time.
+
+Ex: transferring file contents from fileA to fileB
+
+- The content arrive in chunks and you transfer in chunks while the remaining contents arrive over times
+
+- prevent unnecessary data downloads and memory usags.
+
+### Buffer
+
+- Area where people wait is nothing but the buffer.
+
+- Node.js can not control the pace at which data arrives in the stream.
+
+- It can only decide when it is write time to send the data for processing.
+
+- If data is already processed or too tittle data to process, node put the arriving data in a buffer.
+
+- It is intentionally small area that maintains in the runtime to process a stream of data.
+
+- Ex: streaming a video online.
+
+- if your internet connection is fast enough, the speed of stream will be fast enough to instantly fill up the buffer and send it out for processing.
+
+- that will repeat till the stream is finished.
+
+- If your connection is slow, after processing the first chunk of data that arrived, the video player will display a loading spinner which indicates it is waiting for more data to arrive.
+
+- one the buffer is filled up and the data is processed, the video player show the video.
+
+![screen](./images/buffer.png)
+
+### Asynchronous JavaScript
+
+Javascript is a synchronous, blocking, single-threaded langage.
+
+**Synchronous**
+
+- if we have two function which log message to the console, code execute top down, with only one line executing at any given time.
+
+![screen](./images/sync.png)
+
+**Blocking**
+
+No matter how long a previous process takes, the subsequent processes won't kick off until the formar is completed.
+
+Web app runs in a browser and it executes an intensive chunk of code without returning control to the browser, the browser can appear to be forzen.
+
+**Single-threaded**
+A thread is simple a processes that your JavaScipt program can use to run a task.
+
+Each thread can only do one task at a time.
+
+Javascript has just the one thread called main thread for executing any code.
+
+### Important
+
+Just javascript is not enough
+
+- we need new pieces which are outside of javascript to help us write asynchrounos code
+
+- for front-end, this is where web browser come into play for back-end, this is where Node.js come into play.
+
+- Web browers and node.js define function and APIs that allow us to register function that should not be executed synchrononsely, and should instead be invoked asynchronously when some kind of event occurs
+
+- For example, that could be a passage of time (settimeout or setInterval), the users interaction with the mouse over the network (callback, Promises,async-await)
+
+- You can let your code do several things at the same time without stoping or blocking your main thread.
+
+### fs Module
+
+the file system (fs) allow you to work with the file system on your computer.
+
+![screen](./images/fs.png);
+
+### fs Promise Module
+
+![screen](./images/fs2.png)
+
+We can use another approch called as await.
+
+![screen](./images/await.png)
+
+### Streams
+
+- A stream is a sequence of data that is being moved from one point to another over time.
+
+- Ex: a stream of data being transferred from one file to another with in the same computer.
+
+- Work with data in chunks instead of writting for the entire data to be available at once.
+
+- If you're transferring file contents from fileA to fileB, you don't wait for entire fileA content to be saved in temporary memory before moving it into fileB
+
+- Instead, the content is transferred in chunks over time which prevents unnecessary memory usage.
+
+- Stream is infact a build-in node module that inherits from the events emiiter class
+
+- Others modules internally use streams for there functioning.
+
+![sandeep](./images/stream.png)
+
+### Types of Streams
+
+- Readable stream from which data can be read.
+
+- Writable stream to which we can write data.
+
+- Duplex streams that are both Readable and Writable.
+
+- Transform streams that can modify or transform the data as it is written and read.
+
+- Ex: Reading from file as readble stream
+- Ex:- Written to a file as writable stream.
+- Ex:- Sockets as a duplex stream.

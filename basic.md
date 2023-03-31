@@ -109,7 +109,7 @@ in our application.
 **Note** When you create new superhero the module are not going to function because module already caching in previous supername of name.
 That is called module caching come to the picture.
 
-### Emport Export pattern.
+### Import Export pattern.
 
 **There are five ways to import and export pattern in javascript**
 
@@ -432,6 +432,60 @@ We can use another approch called as await.
 - Ex:- Written to a file as writable stream.
 - Ex:- Sockets as a duplex stream.
 
-```
+### Node.js Stream readable.pipe() Method
+
+![sandeep](./images/16.png)
+
+The readable.pipe() method in a Readable Stream is used to attach a writable stream to the readable stream so that it conseqently switches into flowing mode and then pushes all the data that it has to the attached Writable.
 
 ```
+readable.pipe(destination,option)
+destination: This parameter holds the destination of writing data.
+option: This parameter holds the pipe options.
+```
+
+![sandeep](./images/17.png)
+
+So, after the piping method the file named file2.text” must contain the data that was in the file file.text”.
+
+![sandeep](./images/19.png)
+
+### HTTP
+
+- Hypertext Transfer Protocal
+- A protocal that defines a format for client and server to speak to each other.
+- The client send HTTP request and server responds with HTTP response.
+
+### HTTP and Node
+
+- We can create a web server using Node.js
+- Node.js has access to operating systems functionality like networking.
+- Node has an event loop to run task **asynchronously** and is perfect for creating web servers that can simultaneously handel large volumes of requests.
+- The node server we create should still respect the HTTP format.
+- The HTTP module allows creating of web servers that can transfer data over HTTP.
+
+### How to create a server in node.js
+
+![sandeep](./images/21.png)
+
+![sandeep](./images/20.png)
+
+### JSON Response
+
+![sandeep](./images/22.png)
+
+![sandeep](./images/23.png)
+
+### HTML Response
+
+![sandeep](./images/24.png)
+
+![sandeep](./images/25.png)
+
+### How to send a response to external HTML file
+
+![sandeep](./images/26.png)
+
+![sandeep](./images/27.png)
+
+![sandeep](./images/28.png)

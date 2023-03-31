@@ -15,11 +15,7 @@ Node.js an open-source , cross-plateform javascript runtime envirnment.
 - Full stack delevelopment is the one of the most sought out skill sets by companies.
 - Huge community supports.
 
-```
-console.log("Hello World");
-run it:- node filename.js
-Hello World
-```
+![sandeep](./images/1st.png)
 
 ### Browser vs Node.js
 
@@ -50,26 +46,9 @@ in our application.
 
 - Node.js adopted CommonJS when it started out and is what you will see in code bases.
 
-```
-fileName :- add.js
-function add(a,b){
-    return a+b;
-}
-console.log(add(4,5)); // 9
-```
+  ![sandeep](./images/2nd.png)
 
-```
-fileName:- index.js
-require("./add.js);
-console.log("Hello from index.js");
-
-if you run this program, output  will be 9 and  Hello from index.js
-
-if you run node index.js
-// 9 will print from add.js and Hello from index.js will print index.js
-because of require modules.
-
-```
+  ![sandeep](./images/3rd.png)
 
 ### Local Modules Summary
 
@@ -80,91 +59,27 @@ because of require modules.
 
 ### Module Exports
 
-```
-function add(a, b) {
-  return a + b;
-}
-module.exports = add;
-```
+![sandeep](./images/2nd.png)
 
-another file i have index.js
-
-```
-console.log("Hello from index.js");
-const add1 = add(4, 5);
-const add2 = add(5, 5);
-console.log(add1);
-console.log(add2);
-```
-
-Output will be like as:-
-
-```
-Hello from index.js
-9
-10
-```
+![sandeep](./images/5th1.png)
 
 **Note** You can use multiple time of add functions
 
 ### Module Scope
 
-- **fileName :- batman.js**
+![sandeep](./images/6.png)
 
-```
-const superHero = "Batman";
-console.log(superHero);
-```
+![sandeep](./images/7.png)
 
-- **fileName:- superman.js**
-
-```
-const superman = "Superman";
-console.log(superman);
-
-```
-
-- **fileName:- index.js**
-
-```
-require("./batman");
-require("./superman");
-```
-
-- **Output**
-
-```
-Batman
-Superman
-```
+![sandeep](./images/8.png)
 
 **Note** each module in node.js has a own scope.
 
-```
-(function () {
-  const superHero = "Superman";
-  console.log(superHero);
-})();
-(function () {
-  const superHero = "Batman";
-  console.log(superHero);
-})();
-```
-
-- **Output**
-
-```
-Superman
-Batman
-```
+![sandeep](./images/9.png)
 
 #### Immediately Invoked Function (IIFE) in Node.js
 
-```
-(function(){
-    // module code actualy lives in here.
-})
-```
+![sandeep](./images/10.png)
 
 - Before a module's code is executed, Node.js will wrap it with a function wrapper that provides scope.
 
@@ -179,75 +94,22 @@ Batman
 - IIFE helps keep top level variables scoped to the modules rather than the global object.
 
 - The IIFE that wraps every modules contains 5 parameters which are pretty important for the functioning of a module.
+  ![sandeep](./images/11.png)
 
-```
-(function (message) {
-  const superHero = "Superman";
-  console.log(message, superHero);
-})("Hello");
-(function (message) {
-  const superHero = "Batman";
-  console.log(message, superHero);
-})("Hey");
-```
-
-```
-node iife.js
-Hello Superman
-Hey Batman
-```
-
-```
-(function (exports, require, module, __filename, __dirname) {
-  const superHero = "Batman";
-  console.log(superHero);
-})();
-```
+  ![sandeep](./images/12.png)
 
 **Before a module's code is executed node.js will wrap it with a functions that contain five parameter namely exports,requre,module,filename,dirname.**
 
 ### Module Caching
 
-```
-class SuperHero {
-  constructor(name) {
-    this.name = name;
-  }
-  getName() {
-    return this.name;
-  }
-  setName(name) {
-    this.name = name;
-  }
-}
-module.exports = SuperHero;
-```
+![sandeep](./images/13.png)
 
-```
-const SuperHero = require("./super-hero");
-
-const batman = new SuperHero("Batman");
-console.log(batman.getName());
-batman.setName("Bruce Wayan");
-console.log(batman.getName());
-
-const newSuperHero = new SuperHero("Superman");
-console.log(newSuperHero.getName());
-```
-
-```
-node index.js
-Batman
-Bruce Wayan
-Superman
-```
+![sandeep](./images/14.png)
 
 **Note** When you create new superhero the module are not going to function because module already caching in previous supername of name.
 That is called module caching come to the picture.
 
 ### Emport Export pattern.
-
-<!-- // ![screensort](./imageName.png) -->
 
 **There are five ways to import and export pattern in javascript**
 
@@ -569,3 +431,7 @@ We can use another approch called as await.
 - Ex: Reading from file as readble stream
 - Ex:- Written to a file as writable stream.
 - Ex:- Sockets as a duplex stream.
+
+```
+
+```

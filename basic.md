@@ -489,3 +489,44 @@ So, after the piping method the file named file2.text” must contain the data t
 ![sandeep](./images/27.png)
 
 ![sandeep](./images/28.png)
+
+### HTML Routing
+
+**Routing refers to how an application's endpoints (URIs) respond to client requests.**
+
+![sandeep](./images/32.png)
+
+![sandeep](./images/31.1.png)
+
+![sandeep](./images/31.2.png)
+
+![sandeep](./images/31.3.png)
+
+![sandeep](./images/31.4.png)
+
+### Web framework
+
+- A framework simpley abstruct the low level code allowing you to focus on the requirement than the code itself.
+
+- for example, Angular, React, Vue are the framework/libraries that help you build user interface without having to rely on the lower level DOM API in JavaScript.
+
+- There are frameworks to build web or mobile aplication without having a rely on the HTTP module in node.js
+
+- Ex: express,nest,hapi,kao and sails
+
+- They build on top of the HTTP module making it easier for you to implement all teh features.
+
+### libuv
+
+- libuv is a cross plateform open source libraby written in c language.
+
+**Why**
+
+- Handles asynchronous non-bocking operations in Node.js
+
+**How?**
+
+- thread pool
+- Event loop
+
+### Thread Pool

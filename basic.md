@@ -530,3 +530,56 @@ So, after the piping method the file named file2.text” must contain the data t
 - Event loop
 
 ### Thread Pool
+
+**main thread**
+"Hey libuv, I need to read file contents but that is time consuming task. i don't want to block further code from being executing during this time.Can I offload this task to you?"
+
+**Libuv**
+"Sure, main thread. Unlike you, who is single threaded, I have a pool of threads that I can use to run some of these time consuming tasks. When the task is done the file contents are retrived and the associted callback function can be run."
+
+![sandeep](./images/33.png)
+
+![sandeep](./images/33.1.png)
+
+![sandeep](./images/34.png)
+
+### Experiment:- 1
+
+Every method in node.js that has the "sync" suffix always runs on the main thread and is blocking.
+
+![sandeep](./images/36.png)
+
+![sandeep](./images/35.png)
+
+### Experiments 2
+
+As few anync method like fs.readFile and crypto.pbkdf2 run on a separate thread in libuv's thread pool. they do run aynchronously in their own thread but as far as the main thread is concerned, it appears as if the method is running asynchronously.
+
+**If you put 5 max call then 5th max call will take double amount of time. Then you can say libuv thread pool only have 4 thread.**
+
+![sandeep](./images/37.png)
+
+![sandeep](./images/38.png)
+
+**Now you might ask can we increage the number of thread in thread pool so that more call pbkdf2 can run in parallel leading to better performance ?**
+
+**Answer YES**
+
+![sandeep](./images/39.png)
+
+### Network I/O
+
+- https.request is a network input/output operation and not a CPU bound operation .
+- It does not use thread pool.
+
+- Libuv instead delegates the work to the operating system kernal and whenever possible, it will poll the kernel and see if the request has completed.
+
+![sandeep](./images/40.png)
+
+**Note**
+
+- Althougth both crypto.pbkdf2 and https.request are asynchronous, https.request method does not seem to use the thread pool.
+
+- https:request does not seem to be affected by the number of CPU cores either.
+
+### package.json
